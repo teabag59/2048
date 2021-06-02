@@ -1,0 +1,131 @@
+#include<stdio.h>
+#include<conio.h>
+#include<windows.h>
+#include<math.h>
+#include<time.h>
+
+//定义全局变量
+int step = 0;
+int score = 0;
+long int Time;
+int BOX[4][4]={
+0,0,0,0,
+0,0,0,0,
+0,0,0,0,
+0,0,0,0};
+HANDLE hOut;
+
+//函数声明
+void gotoxy(int x,int y);
+int color (int c);
+int TextColors(int i);
+void drawtheGameBox();
+int *add(int item[]);
+int ifMove(int item[]);
+void Gamepaly();
+void Repaly();
+int if2n(int x);
+int ifup();
+int ifdown();
+int ifleft();
+int ifright();
+int BOXmax();
+int Gamefaile();
+int Gamewin();
+int keyboardControl;
+//void close;
+//void choice;
+//void title;
+//void Rabbit;
+//void regulation;
+//void explation;
+
+//游戏的欢迎界面设计
+
+//获取光标位置 
+void gotoxy(int x,int y)
+{
+	COORD c;
+	c.X=x;
+	c.Y=y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),c);
+ } 
+ 
+ 
+ //文字颜色函数
+ 
+ int color(int c)
+ {
+ 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),c); //更改文字颜色
+	 return 0; 
+  } 
+  
+  
+//设置标题
+void title()
+{
+	color(11);
+	gotoxy(19,2);
+	printf("***    ****   * *    ****");
+		gotoxy(19,3);
+	printf("  *    *  *   * *    *  *"); 
+		gotoxy(19,4);
+	printf("***    *  *   * *    ****"); 
+		gotoxy(19,5);
+	printf("*      *  *   ****   *  *"); 
+		gotoxy(19,6);
+	printf("***    ****     *    ****"); 
+ } 
+ 
+ void choice()
+ {
+ 	int n;
+ 	int i,j = 1;
+ 	gotoxy (32,8);
+ 	color(13);
+ 	printf("挑战 2 0 4 8");
+	color (14);
+	for(i=9;i<=20;i++)
+	{
+		for (j=15;j<60;j++)
+		{
+			gotoxy(j,i);
+			if (i==9||i==20)
+			printf("=");
+			else if (j==15||j==59)
+			printf("||");
+		}
+	 } 
+	 
+	 color(12);
+	 gotoxy(25,12);
+	 printf("1.开始游戏");
+	  gotoxy(40,12);
+	 printf("2.游戏规则");
+	  gotoxy(25,16);
+	 printf("3.按键说明");
+	  gotoxy(40,16);
+	 printf("4.退出");
+	  gotoxy(21,22);
+	 printf("请选择[1 2 3 4]:[]\b\b");
+	 scanf("%d",&n);
+	 switch (n)
+	 {
+	 	case 1:
+	 		break;
+	 	case 2:
+	 		break;
+	 	case 3:
+	 		break;
+	 	case 4:
+	 		exit(0);
+	 		break;
+	 }
+	 
+	  
+ }
+ 
+ int main(){
+ 	title();
+ 	choice();
+ }

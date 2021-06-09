@@ -18,13 +18,13 @@ HANDLE hOut;
 //函数声明
 void gotoxy(int x,int y);
 int color (int c);
-int TextColors(int i);
-void drawtheGameBox();
-int *add(int item[]);
-int ifMove(int item[]);
-void Gamepaly();
-void Repaly();
-int if2n(int x);
+int TextColors(int i);   //修改不同数字如 2，4，8的颜色 
+void drawtheGameBox(); //输出游戏的4x4表格 
+int *add(int item[]); //实现数字合并的底层逻辑 
+int ifMove(int item[]);  //判断是否数组能移动 
+void Gamepaly();  //以游戏开始
+void Repaly(); //重开
+int if2n(int x);  //下面都是判断是否是2的n方 返回1 ，否则0 
 int ifup();
 int ifdown();
 int ifleft();

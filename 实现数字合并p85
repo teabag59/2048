@@ -135,3 +135,69 @@ int* add(int item[])
 		  }
 		  return flag;
    } 
+   
+   
+   
+   
+     
+void Gamepaly(){
+	system("cls");
+	int i=0,j=0;
+	Time = time(NULL);
+	drawTheGameBox();
+	
+	int a,b;
+	srand(time(NULL));
+	do(){
+		a = rand()%4;
+		b = rand()%4； 
+	} while(BOX[a][b]!=0);
+	
+	if(rand()%4==0)
+	{
+		BOX[a][b]=4;
+	}
+	else{
+		BOX[a][b] = 2;
+	}
+	
+	for(i=0;i<4;i++){
+		for(j=0;j<4;j++)
+		if(BOX[i][j] ==0)
+		{continue;
+		}
+		gotoxy(15+j*10+5,2+i*5+3);
+		int c=BOX[i][j];
+		TextColor(c);
+		printf("%d,c");
+	}
+}
+
+	while(1){
+		while (kbhit()){
+			continue;
+		}
+		crawTheGameBox();
+		for(i=0;i<4;i++)
+		{
+			for(j=0;j<4;j++)
+			{
+				if(BOX[i][j]==0)
+				{
+					continue;
+				}
+				gotoxy(15+j*10+5,2+i*5+3);
+				int c = BOX[i][j];
+				TextColor(c);
+				printf("%d",c); 
+			}
+		}
+			do{
+				a=rand()%4;
+				b=rand()%4;
+			}while(BOX[a][b]!=0);
+			if(rand()%4==0)
+			{
+				BOX[a]
+			}
+	}

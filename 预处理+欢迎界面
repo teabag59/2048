@@ -109,13 +109,18 @@ void title()
 	  gotoxy(21,22);
 	 printf("请选择[1 2 3 4]:[]\b\b");
 	 scanf("%d",&n);
+	 
+	 
 	 switch (n)
 	 {
 	 	case 1:
+	 		Gameplay();
 	 		break;
 	 	case 2:
+	 		regulation();
 	 		break;
 	 	case 3:
+	 		explation();
 	 		break;
 	 	case 4:
 	 		exit(0);
@@ -125,6 +130,8 @@ void title()
 	  
  }
  
+ 
+ //整个程序的入口 也就是一开始看到的 main尽量简洁 
  int main(){
  	title();
  	choice();

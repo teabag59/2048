@@ -1,0 +1,111 @@
+// 开始模块的建立 
+ 
+ void Gamepaly(){
+	system("cls");
+	int i=0,j=0;
+	Time = time(NULL); //获得游戏的当是时间 
+	drawTheGameBox();
+
+
+//在4x4里随机位置生成2或者4	
+	int a,b;
+	srand(time(NULL));
+	do(){
+		a = rand()%4;
+		b = rand()%4; 
+	} while(BOX[a][b]!=0);
+	
+	if(rand()%4==0)
+	{
+		BOX[a][b]=4;
+	}
+	else{
+		BOX[a][b] = 2;
+	}
+	
+	for(i=0;i<4;i++){
+		for(j=0;j<4;j++)
+		if(BOX[i][j] ==0)
+		{continue;
+		}
+		gotoxy(15+j*10+5,2+i*5+3);
+		int c=BOX[i][j];
+		TextColor(c);
+		printf("%d,c");
+	}
+}
+
+	while(1){
+		while (kbhit()){
+			continue;
+		}
+		crawTheGameBox();
+		for(i=0;i<4;i++)
+		{
+			for(j=0;j<4;j++)
+			{
+				if(BOX[i][j]==0)
+				{
+					continue;
+				}
+				gotoxy(15+j*10+5,2+i*5+3);
+				int c = BOX[i][j];
+				TextColor(c);
+				printf("%d",c); 
+			}
+		}
+			do{
+				a=rand()%4;
+				b=rand()%4;
+			}while(BOX[a][b]!=0);
+			if(rand()%4==0)
+			{
+				BOX[a][b]=4; 
+			}else{
+				BOX[a][b] = 2;
+			}
+			step++;
+			gotoxy(15+b*10+5,2+a*+3);
+			int c = BOX[a][b];
+			TextColors(c);
+			printf("%d",c);
+      
+      
+      if(Gamefaile()+Gamewin()!=0)
+  {
+	int n;
+	gotoxy(20,20);
+	color(12);
+	printf("我要重新玩一局-------1");
+	gotoxy(45,20);
+	printf("不玩了，退出把-------2\n");
+	gotoxy(43,21);
+	color(11);
+	scanf("%d",&n);
+	switch(n)
+	    {
+		case 1:
+			Replay();
+			break;
+		case 2:
+			exit(0);
+			break;	
+	     }
+   
+  }
+ 
+}
+
+
+
+
+void Replay()
+{
+	system("cls");
+	score=0,step=0;
+	memset(BOX,0,16*sizeof(int));
+	Gameplay();
+	
+}
+  
+  

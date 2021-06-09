@@ -1,3 +1,96 @@
+void drawTheGameBox()
+{
+	int i,j,k;
+	color(14);
+	for(j=2;j<=22;j+=5)
+	{
+		gotoxy(15,j);
+		for(k=1;k<42;k++)
+		{
+			printf("-");
+		}
+		printf("\n");
+	}
+	for (i=3;i<7;i++)
+	{
+		gotoxy(15,i);
+		printf("|    |    |    |    |");
+	}
+	for (i=8;i<12;i++)
+	{
+		gotoxy(15,i);
+		printf("|    |    |    |    |");
+	}
+	for (i=13;i<17;i++)
+	{
+		gotoxy(15,i);
+		printf("|    |    |    |    |");
+	}
+	for (i=18;i<22;i++)
+	{
+		gotoxy(15,i);
+		printf("|    |    |    |    |");
+	}
+	gotoxy(16,1);
+	color(11);
+	printf("游戏分数：%ld,score"); 
+	gotoxy(16,1);
+	color(11);
+	printf("执行步数：%d\n,step"); 
+	gotoxy(16,1);
+	color(11);
+	printf("已用时：%d s",time(NULL) - Time); 
+ } 
+ 
+ int TextColors(int number)
+ {
+ 	switch(number)
+ 	{
+ 		case 2:
+ 			return color(12);
+ 			break;
+ 		case 4:
+ 			return color(11);
+ 			break;
+		case 8:
+ 			return color(10);
+ 			break;
+		case 16:
+ 			return color(14);
+ 			break;
+		case 32:
+ 			return color(6);
+ 			break;
+		case 64:
+ 			return color(5);
+ 			break;
+		case 128:
+ 			return color(4);
+ 			break;
+		case 256:
+ 			return color(3);
+ 			break;
+		case 512:
+ 			return color(2);
+ 			break;
+		case 1024:
+ 			return color(9);
+ 			break;
+		case 2048:
+ 			return color(7);
+ 			break;	 	 	 	
+	 }
+	 return 0;
+ }
+ 
+ 
+
+
+
+
+
+
+
 /实现相同数字合并 
 int* add(int item[])
 {
@@ -135,69 +228,3 @@ int* add(int item[])
 		  }
 		  return flag;
    } 
-   
-   
-   
-   
-     
-void Gamepaly(){
-	system("cls");
-	int i=0,j=0;
-	Time = time(NULL);
-	drawTheGameBox();
-	
-	int a,b;
-	srand(time(NULL));
-	do(){
-		a = rand()%4;
-		b = rand()%4； 
-	} while(BOX[a][b]!=0);
-	
-	if(rand()%4==0)
-	{
-		BOX[a][b]=4;
-	}
-	else{
-		BOX[a][b] = 2;
-	}
-	
-	for(i=0;i<4;i++){
-		for(j=0;j<4;j++)
-		if(BOX[i][j] ==0)
-		{continue;
-		}
-		gotoxy(15+j*10+5,2+i*5+3);
-		int c=BOX[i][j];
-		TextColor(c);
-		printf("%d,c");
-	}
-}
-
-	while(1){
-		while (kbhit()){
-			continue;
-		}
-		crawTheGameBox();
-		for(i=0;i<4;i++)
-		{
-			for(j=0;j<4;j++)
-			{
-				if(BOX[i][j]==0)
-				{
-					continue;
-				}
-				gotoxy(15+j*10+5,2+i*5+3);
-				int c = BOX[i][j];
-				TextColor(c);
-				printf("%d",c); 
-			}
-		}
-			do{
-				a=rand()%4;
-				b=rand()%4;
-			}while(BOX[a][b]!=0);
-			if(rand()%4==0)
-			{
-				BOX[a]
-			}
-	}
